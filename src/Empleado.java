@@ -28,6 +28,15 @@ public class Empleado {
     }
 
     public double calcularSalarioFinal(){
+        /*
+        * Primero se ejecutan los parentesis
+        * Luego las multiplicaciones y divisiones
+        * Por último, sumas y restas
+         */
         return (salarioBase + (bonoMensual * 1.10)) - (salarioBase * 0.05);
+    }
+
+    public boolean obtieneBono(){
+        return idEmpleado % 2 == 0;
     }
 }
