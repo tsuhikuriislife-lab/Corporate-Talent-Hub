@@ -39,4 +39,46 @@ public class Empleado {
     public boolean obtieneBono(){
         return idEmpleado % 2 == 0;
     }
+
+    public boolean validarElegibilidad(){
+        return (puntajeTest > 85 && edad < 30) || (idSede == 1 && !esActivo);
+    }
+
+    public void sumarBono(double nuevoBono){
+        this.bonoMensual += nuevoBono;
+    }
+
+    public int getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public double getBonoMensual() {
+        return bonoMensual;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "nivelAcceso=" + nivelAcceso +
+                ", anioIngreso=" + anioIngreso +
+                ", idEmpleado=" + idEmpleado +
+                ", numeroDocumento=" + numeroDocumento +
+                ", puntajeTest=" + puntajeTest +
+                ", salarioBase=" + salarioBase +
+                ", tipoContrato=" + tipoContrato +
+                ", esActivo=" + esActivo +
+                ", nombre='" + nombre + '\'' +
+                ", edad=" + edad +
+                ", idSede=" + idSede +
+                ", bonoMensual=" + bonoMensual +
+                '}';
+    }
 }
