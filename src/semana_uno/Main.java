@@ -1,3 +1,5 @@
+package semana_uno;
+
 import javax.swing.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -32,7 +34,7 @@ public class Main {
         System.out.println("Empresa: " + empresa.nombre());
         System.out.println("Salario final: " + empleado.calcularSalarioFinal());
         System.out.println("¿ID par con bono extra?: " + empleado.obtieneBono());
-        System.out.println("¿Empleado elegible?: " + empleado.validarElegibilidad());
+        System.out.println("¿semana_uno.Empleado elegible?: " + empleado.validarElegibilidad());
 
         if (empleado.obtieneBono()) {
             empleado.sumarBono(100_000.0);

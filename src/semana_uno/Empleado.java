@@ -1,3 +1,5 @@
+package semana_uno;
+
 public class Empleado {
     private byte nivelAcceso;
     private short anioIngreso;
@@ -66,7 +68,7 @@ public class Empleado {
 
     @Override
     public String toString() {
-        return "Empleado{" +
+        return "semana_uno.Empleado{" +
                 "nivelAcceso=" + nivelAcceso +
                 ", anioIngreso=" + anioIngreso +
                 ", idEmpleado=" + idEmpleado +
