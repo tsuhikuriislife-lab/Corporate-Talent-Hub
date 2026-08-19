@@ -48,10 +48,10 @@ public class Main {
                 (byte) 3, // byte
                 (short) 2024, // short
                 102, // int: ID par
-                1_023_456_789L, // long: sufijo L
+                1_023_456_789L, // long: sufijo Lsdfsfdsfd
                 92.5f, // float: sufijo f
                 3_000_000.0, // double
-                'I', // char: contrato indefinido
+                'I', // char: contrato indefinidoj
                 true, // boolean
                 "Laura Gómez", // String
                 27,
