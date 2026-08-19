@@ -1,5 +1,3 @@
-package semana_uno;
-
 import javax.swing.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -13,7 +11,7 @@ public class Main {
                 """;
         JOptionPane.showMessageDialog(null, header);
 
-        Empleado empleado = new Empleado(
+        Empleados empleado = new Empleados(
                 (byte) 1,
                 (short) 2024,
                 123321321,
@@ -25,8 +23,7 @@ public class Main {
                 "Enrique",
                 28,
                 1,
-                200000
-        );
+                200000);
 
         EmpresaRecord empresa = new EmpresaRecord("empresa1", "123456789-0", "2001");
 
@@ -45,33 +42,34 @@ public class Main {
         ejecutarLaboratorioDeNulos(empleado);
 
     }
-    private static Empleado crearEmpleadoDePrueba() {
-        return new Empleado(
-                (byte) 3,             // byte
-                (short) 2024,         // short
-                102,                  // int: ID par
-                1_023_456_789L,       // long: sufijo L
-                92.5f,                // float: sufijo f
-                3_000_000.0,          // double
-                'I',                  // char: contrato indefinido
-                true,                 // boolean
-                "Laura Gómez",        // String
+
+    private static Empleados crearEmpleadoDePrueba() {
+        return new Empleados(
+                (byte) 3, // byte
+                (short) 2024, // short
+                102, // int: ID par
+                1_023_456_789L, // long: sufijo L
+                92.5f, // float: sufijo f
+                3_000_000.0, // double
+                'I', // char: contrato indefinido
+                true, // boolean
+                "Laura Gómez", // String
                 27,
                 2,
                 500_000.0);
     }
 
     private static void compararReferencias() {
-        Empleado primero = crearEmpleadoDePrueba();
-        Empleado segundo = crearEmpleadoDePrueba();
-        Empleado aliasDelPrimero = primero;
+        Empleados primero = crearEmpleadoDePrueba();
+        Empleados segundo = crearEmpleadoDePrueba();
+        Empleados aliasDelPrimero = primero;
 
         System.out.println("primero == segundo: " + (primero == segundo));
         System.out.println("primero == aliasDelPrimero: "
                 + (primero == aliasDelPrimero));
     }
 
-    private static void ejecutarLaboratorioDeNulos(Empleado empleado) {
+    private static void ejecutarLaboratorioDeNulos(Empleados empleado) {
         empleado.setNombre(null);
 
         try {

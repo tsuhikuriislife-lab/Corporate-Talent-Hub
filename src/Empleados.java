@@ -1,6 +1,4 @@
-package semana_uno;
-
-public class Empleado {
+public class Empleados {
     private byte nivelAcceso;
     private short anioIngreso;
     private int idEmpleado;
@@ -14,7 +12,9 @@ public class Empleado {
     private int idSede;
     private double bonoMensual;
 
-    public Empleado(byte nivelAcceso, short anioIngreso, int idEmpleado, long numeroDocumento, float puntajeTest, double salarioBase, char tipoContrato, boolean esActivo, String nombre, int edad, int idSede, double bonoMensual) {
+    public Empleados(byte nivelAcceso, short anioIngreso, int idEmpleado, long numeroDocumento, float puntajeTest,
+            double salarioBase, char tipoContrato, boolean esActivo, String nombre, int edad, int idSede,
+            double bonoMensual) {
         this.nivelAcceso = nivelAcceso;
         this.anioIngreso = anioIngreso;
         this.idEmpleado = idEmpleado;
@@ -29,24 +29,24 @@ public class Empleado {
         this.bonoMensual = bonoMensual;
     }
 
-    public double calcularSalarioFinal(){
+    public double calcularSalarioFinal() {
         /*
-        * Primero se ejecutan los parentesis
-        * Luego las multiplicaciones y divisiones
-        * Por último, sumas y restas
+         * Primero se ejecutan los parentesis
+         * Luego las multiplicaciones y divisiones
+         * Por último, sumas y restas
          */
         return (salarioBase + (bonoMensual * 1.10)) - (salarioBase * 0.05);
     }
 
-    public boolean obtieneBono(){
+    public boolean obtieneBono() {
         return idEmpleado % 2 == 0;
     }
 
-    public boolean validarElegibilidad(){
+    public boolean validarElegibilidad() {
         return (puntajeTest > 85 && edad < 30) || (idSede == 1 && !esActivo);
     }
 
-    public void sumarBono(double nuevoBono){
+    public void sumarBono(double nuevoBono) {
         this.bonoMensual += nuevoBono;
     }
 
