@@ -11,10 +11,11 @@ public class Empleados {
     private int edad;
     private int idSede;
     private double bonoMensual;
+    private double[][] calificacionesTrimestres;
 
     public Empleados(byte nivelAcceso, short anioIngreso, int idEmpleado, long numeroDocumento, float puntajeTest,
             double salarioBase, char tipoContrato, boolean esActivo, String nombre, int edad, int idSede,
-            double bonoMensual) {
+            double bonoMensual, double[][] calificacionesTrimestres) {
         this.nivelAcceso = nivelAcceso;
         this.anioIngreso = anioIngreso;
         this.idEmpleado = idEmpleado;
@@ -27,6 +28,7 @@ public class Empleados {
         this.edad = edad;
         this.idSede = idSede;
         this.bonoMensual = bonoMensual;
+        this.calificacionesTrimestres = calificacionesTrimestres;
     }
 
     public double calcularSalarioFinal() {
@@ -66,6 +68,39 @@ public class Empleados {
         this.nombre = nombre;
     }
 
+    public double[][] getCalificacionesTrimestres() {
+        return calificacionesTrimestres;
+    }
+
+    public String obtenerCategoriaSalarial() {
+        double salarioFinal = calcularSalarioFinal();
+
+        int categoria;
+        if (salarioFinal < 2_000_000) {
+            categoria = 1;
+        } else if (salarioFinal < 4_000_000) {
+            categoria = 2;
+        } else {
+            categoria = 3;
+        }
+
+        /*
+         * Switch moderno (arrow syntax ->):
+         * A diferencia del switch tradicional, la sintaxis con flechas (->) incluye
+         * breaks IMPLÍCITOS, lo que elimina por completo el riesgo de "fall-through".
+         * Cada case ejecuta únicamente su expresión y retorna el valor sin continuar
+         * al siguiente case. Esto hace que el código sea más seguro y legible,
+         * ya que el compilador garantiza que no se ejecutará código no deseado
+         * por la ausencia de un break olvidado.
+         */
+        return switch (categoria) {
+            case 1 -> "Salario Mínimo";
+            case 2 -> "Salario Medio";
+            case 3 -> "Salario Alto";
+            default -> "Categoría desconocida";
+        };
+    }
+
     @Override
     public String toString() {
         return "semana_uno.Empleado{" +
@@ -81,6 +116,7 @@ public class Empleados {
                 ", edad=" + edad +
                 ", idSede=" + idSede +
                 ", bonoMensual=" + bonoMensual +
+                ", calificacionesTrimestres=" + java.util.Arrays.deepToString(calificacionesTrimestres) +
                 '}';
     }
 }
